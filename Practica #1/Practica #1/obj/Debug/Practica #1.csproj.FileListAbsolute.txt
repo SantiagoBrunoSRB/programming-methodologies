@@ -1,0 +1,5 @@
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica #1\Practica #1\obj\Debug\Practica #1.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica #1\Practica #1\bin\Debug\Practica #1.pdb
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica #1\Practica #1\obj\Debug\Practica #1.pdb
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica #1\Practica #1\bin\Debug\Practica #1.exe
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica #1\Practica #1\obj\Debug\Practica #1.exe
