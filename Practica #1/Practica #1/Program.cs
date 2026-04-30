@@ -19,10 +19,11 @@ namespace Practica__1
 	{
         public static void Main(string[] args)
         {
-        	Console.WriteLine("Las interfaces estan vivas!!");
-        	Console.ReadKey(true);
         	
-        		Pila pila = new Pila();
+ /**
+  * Ejercicio 7
+  
+        	Pila pila = new Pila();
 			Cola cola = new Cola();
 			llenar(pila);
 			llenar(cola);
@@ -30,8 +31,24 @@ namespace Practica__1
 			informar(cola);
 			Console.Write("Press any key to continue . . . ");
 			 Console.ReadKey(true);
-		}
+		
+**/
+      //ejercicio 9
 
+			Pila p = new Pila();
+			Cola c = new Cola();
+			ColeccionMultiple multiple = new ColeccionMultiple(p,c);
+			llenar(p);
+			llenar(c);
+			informar(p);
+			informar(c);
+			informar(multiple);
+
+			Console.WriteLine("Las interfaces estan vivas!!");
+        	Console.ReadKey(true);
+        	
+
+		}
 		//atributo de la clase 
 		static Random azar = new Random();
         	

@@ -13,7 +13,7 @@ namespace Practica__1
 	/// <summary>
 	/// Description of ColeccionMultiple.
 	/// </summary>
-	public class ColeccionMultiple
+	public class ColeccionMultiple : Icoleccionable
 	{
 		//Propiedades
 		public Pila pila;
