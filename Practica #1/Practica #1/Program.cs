@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 
 
 
@@ -89,6 +90,40 @@ namespace Practica__1
 				Console.WriteLine("el elemento no se encuentra en la lista");
 			}
 		}
+		
+		
+		//Ejercicio 13
+		
+		public static void llenarAlumnos(Icoleccionable c){
+			List<string> alumnos =new List<string>(){
+    	"Ximena", "Iara", "Mica", "Lucia", "Maria","Mia", "Angela", "Sasha","Abella", "Adriana", "Riley", "Mia", "Brandi","Lana", "Eva", "Emily", "Elsa", "Alexis","Kendra", "Nicole", "Asa", "Anissa", "Lisa","Gianna", "Carter", "Dani", "Remy", "Tori","Jenna", "Ava", "August", "Valentina", "Cleo","Skylar", "Alina", "Gina", "Lena", "Kagney","Abigail", "Cherie", "Monica", "Rae", "Violet",
+		"Jordi", "Nacho", "Rocco", "Manuel", "Johnny","James", "Mick", "Erik", "Prince", "Lex"};
+			
+			for (int i = 0; i < 20; i++) {
+				//azar
+				int legajo = azar.Next(10000,100000);
+				int documento = azar.Next(10000000,100000000);
+				int valor = azar.Next(10,101);
+				int indice = azar.Next(0,50);
+				string alumno = alumnos[indice];
+				double promedio = valor/10.0;
+				c.agregar(new Alumno(alumno,documento,legajo,promedio));
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 	}
 }
@@ -98,7 +133,7 @@ namespace Practica__1
 
 
 
-Ejercicio 12 Implentacion de la Clase Alumno
+
 
 
 /** EJERCICIO 10: Para reflexionar. Además de la creación de la nueva clase ColeccionMultiple y la adaptación del módulo main, responda ¿qué tuvo que modificar de lo realizado en los primeros seis ejercicios?
