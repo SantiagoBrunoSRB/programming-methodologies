@@ -39,10 +39,7 @@ namespace Practica__1
 		
 		//Implementacion Comparable 
 		
-	/**
-		 DNI --> int Por si quisiera comparar por DNI
-		
-		public bool sosIgual(Comparable c)
+	public bool sosIgual(Comparable c)
 		{
 			return this.dni == ((Persona)c).getDni();
 		}
@@ -56,11 +53,10 @@ namespace Practica__1
 		{
 			return this.dni > ((Persona)c).getDni();
 		}
-		**/
 		
-		// Nombre --> String 
 		
-		public bool sosIgual(Comparable c)
+		/** Nombre --> String 
+				public bool sosIgual(Comparable c)
 		{
 			return this.nombre == ((Persona)c).getNombre();
 		}
@@ -74,11 +70,17 @@ namespace Practica__1
 		{
 			return this.nombre.CompareTo(((Persona)c).getNombre()) > 0;
 		}
+
+**/
+		public override string ToString()
+		{
+		    return dni.ToString();
+
+		}
+
 		
 
 		//this.obj.CompareTo(obj) > 0 ; --> true  ejemplo JUAN > Ana (true)
-		
-		
 		
 		
 	}
