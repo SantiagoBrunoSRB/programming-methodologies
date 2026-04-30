@@ -38,5 +38,10 @@ namespace Practica__1
 		public bool sosIgual(Comparable c){
 			return this.valor == ((Numero)c).getValor();
 		}
+
+		public override string ToString()
+		{
+			return this.valor.ToString();
+		}
 	}
 }
