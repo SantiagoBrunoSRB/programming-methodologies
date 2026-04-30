@@ -54,10 +54,7 @@ namespace Practica__1
         	
         	
         	
-        	
-        	
-     	
-		
+        
 
 		// metodos de la clase
 		public static void llenar(Icoleccionable c)
@@ -95,3 +92,21 @@ namespace Practica__1
 
 	}
 }
+
+
+
+
+
+
+Ejercicio 12 Implentacion de la Clase Alumno
+
+
+/** EJERCICIO 10: Para reflexionar. Además de la creación de la nueva clase ColeccionMultiple y la adaptación del módulo main, responda ¿qué tuvo que modificar de lo realizado en los primeros seis ejercicios?
+ * Se modificaron las colecciones (como Pila y Cola) para que implementen la interfaz Icoleccionable, de modo que todas compartan el mismo contrato (cuantos, minimo, maximo, agregar, contiene).
+Además, se unificaron los métodos genéricos como llenar e informar para que trabajen con Icoleccionable en lugar de tipos específicos.
+También se tuvo que adaptar el diseño al polimorfismo, asegurando que todas las colecciones (incluida ColeccionMultiple) puedan tratarse de la misma forma.
+
+
+Idea clave en una frase:
+Se pasó de implementaciones separadas a un enfoque basado en interfaces y polimorfismo, donde todas las colecciones cumplen el mismo contrato (Icoleccionable).
+ **/
