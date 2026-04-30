@@ -21,7 +21,26 @@ namespace Practica__1
         {
         	Console.WriteLine("Las interfaces estan vivas!!");
         	Console.ReadKey(true);
+        	
+        		Pila pila = new Pila();
+			Cola cola = new Cola();
+			llenar(pila);
+			llenar(cola);
+			informar(pila);
+			informar(cola);
+			Console.Write("Press any key to continue . . . ");
+			 Console.ReadKey(true);
 		}
+
+		//atributo de la clase 
+		static Random azar = new Random();
+        	
+        	
+        	
+        	
+        	
+     	
+		
 
 		// metodos de la clase
 		public static void llenar(Icoleccionable c)
