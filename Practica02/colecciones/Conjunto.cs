@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Practica02._iterator;
 
 namespace Practica02
 {
 	/// <summary>
 	/// Description of Conjunto.
 	/// </summary>
-	public class Conjunto : IColeccionable
+	public class Conjunto : IColeccionable ,Iterable
 	{
 		private List<Comparable> listaElementos;
 		public Conjunto()
@@ -19,7 +20,7 @@ namespace Practica02
 				this.listaElementos.Add(c);
 			}
 		}
-		
+
 		public bool pertenece(Comparable c){
 			foreach (Comparable e in this.listaElementos) {
 				if(c.sosIgual(e)){
@@ -28,9 +29,9 @@ namespace Practica02
 			}
 			return false;
 		}
-		
+
 		//getter del List<Comparable>
-		
+
 		public List<Comparable> getListaElementos(){
 			return this.listaElementos;
 		}
@@ -51,7 +52,7 @@ namespace Practica02
 					}
 				}
 				return valorInicial;
-				
+
 			}else
 				throw new Exception("La lista esta vacia");
 			//caso contratio mandamos un mensajito
@@ -68,15 +69,24 @@ namespace Practica02
 					}
 				}
 				return valorInicial;
-				
+
 			}else
 				throw new Exception("la lista esta vacia");
-			//caso contratio mandamos un mensaje
+			//caso contratio mandamos un mensajito
 		}
 
 		public bool contiene(Comparable c)
 		{
 			return pertenece(c);
 		}
+
+		//Inicio Iterable implementation
+
+		public Iterador crearIterador()
+		{
+			return new IteradorDeConjunto(this);
+		}
+
+		//fin
 	}
 }

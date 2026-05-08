@@ -1,6 +1,6 @@
 ﻿/*
  * Creado por SharpDevelop.
- * Usuario: PcHome
+ * Usuario: Santiago
  * Fecha: 30/3/2026
  * Hora: 17:36
  * 
@@ -22,10 +22,10 @@ namespace Practica02
 		{
 			elementos = new List<Comparable>();
 		}
-		
+
 		//metodos
-		
-		
+
+
 		//push  : Inserta un elemento en la parte superior de la Pila
 		public void apilar(Comparable e){
 			elementos.Add(e);
@@ -43,7 +43,7 @@ namespace Practica02
 		public List<Comparable> getPila(){
 			return this.elementos;
 		}
-		
+
 		#region IColeccionable implementation
 		public int cuantos()
 		{
@@ -61,7 +61,7 @@ namespace Practica02
 				return e;
 			}else
 				throw new Exception("La coleccion esta vacia no se puede encontrar el Maximo");
-			
+
 		}
 		public Comparable minimo()
 		{
@@ -75,7 +75,7 @@ namespace Practica02
 				return e;
 			}else
 				throw new Exception("La Coleccion esta vacia no se puede encontrar el minimo");
-			
+
 		}
 		public void agregar(Comparable c)
 		{
@@ -91,16 +91,16 @@ namespace Practica02
 			return false;
 		}
 		#endregion
-		
+
 		public override string ToString(){
 			return elementos.ToString();
 		}
 
-		#region Iterable implementation
+		//inicio Iterable implementation
 		public Iterador crearIterador()
 		{
 			return new IteradorDePila(this);
 		}
-		#endregion
+		//Fin
 	}
 }
