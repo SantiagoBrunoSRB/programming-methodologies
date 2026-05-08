@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
  * Creado por SharpDevelop.
  * Usuario: Santiago
  * Fecha: 28/3/2026
@@ -8,47 +8,33 @@
  */
 using System;
 using System.Collections.Generic;
+using Practica02._iterator;
 using Practica02._strategy;
 
 namespace Practica02
 {
 	class Program
 	{
-		//Atributo de Clase
+		//atributo de la clase 
 		static Random azar = new Random();
-		
-		
-		
+
 		public static void Main(string[] args)
 		{
-			
-		//================ MAIN ===============================================
-			
-			
-			
-			
+			//================ MAIN Consola===============================================
+
+
 			Pila p = new Pila();
 			Cola c = new Cola();
 			ColeccionMultiple multiple = new ColeccionMultiple(p,c);
 			llenarAlumnos(p);
 			llenarAlumnos(c);
 			informar(multiple);
-			
-			
-			
-			Console.WriteLine("Las interfaces estan vivas!");
 
-
+			Console.WriteLine("Hello World!");
 			Console.Write("Press any key to continue . . . ");
 			 Console.ReadKey(true);
 		}
 
-		
-		
-		
-		
-		
-		// metodos de la clase 
 		// metodos de la clase 
 		public static void llenar(IColeccionable c){
 			for (int i = 0; i < 20; i++) {
@@ -96,7 +82,7 @@ namespace Practica02
 
 		public static void llenarAlumnos(IColeccionable c){
 			List<string> nombres =new List<string>(){
-	
+
 			    "Ana", "Juan", "Pedro", "Lucia", "Maria",
 			    "Carlos", "Sofia", "Miguel", "Laura", "Tomas",
 			    "Valentina", "Lucas", "Camila", "Mateo", "Martina",
@@ -123,7 +109,18 @@ namespace Practica02
 				c.agregar(alum);
 			}
 		}
+		//usando el Iterador -- > imprmir todos los elementos del coleccionable
+		public static void imprimirElementos(Iterable col){
+			Iterador iterador = col.crearIterador();
+			iterador.primero();
+			//mientras que no llegue a su fin el coleccionable va a seguir ejecutando
+			while (!iterador.fin()) {
+				Comparable elemento = iterador.actual();
+				Console.WriteLine(elemento);
+				
+				iterador.siguente();
+			}
+		}
 
 	}
-	}
-	
+}

@@ -1,6 +1,6 @@
-﻿/*
+﻿﻿/*
  * Creado por SharpDevelop.
- * Usuario: PcHome
+ * Usuario: Santiago
  * Fecha: 2/4/2026
  * Hora: 11:56
  * 
