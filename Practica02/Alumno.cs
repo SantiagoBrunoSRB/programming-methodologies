@@ -21,7 +21,7 @@ namespace Practica02
 		private double promedio;
 		// Paso 3.1 Creamos la Composicion que esta en el diagrama UML 
 		private IEstrategiaDeComparacion estrategia;
-		
+
 		public Alumno(string nom,int doc,int l, double p) :base(nom,doc)
 		{
 			legajo =l;
@@ -29,12 +29,12 @@ namespace Practica02
 			//Paso 3.2 definir Estrategia por defecto
 			estrategia = new EstrategiaPorPromedio();
 		}
-		
+
 		//getters
 		public int getLegajo(){
 			return this.legajo;
 		}
-		
+
 		public double getPromedio(){
 			return this.promedio;
 		}
@@ -42,8 +42,8 @@ namespace Practica02
 		public void setEstrategia(IEstrategiaDeComparacion e){
 			estrategia = e;
 		}
-		
-		
+
+
 		// Paso 3.4  este el mas importante por que delegamos la responsabilidad de comparar Alumnos
 		// a las estrategias
 		//sobreescribimos metodos hereados de Persona
@@ -64,5 +64,18 @@ namespace Practica02
 			//return this.legajo > ((Alumno)c).getLegajo();
 			return this.estrategia.sosMayor(this,(Alumno)c);
 		}
+		/*
+		public override string ToString()
+		{
+		    return "Nombre: " + getNombre() + " DNI: " + getDni() + " Legajo: " + legajo + " Promedio: " + promedio;
+		}
+		*/
+		
+		public override string ToString()
+		{
+		    return "\nNombre: " + getNombre() + " \nDNI: " + getDni() + " \nLegajo: " + getLegajo() + " \nPromedio: " + getPromedio();
+		}
+
+
 	}
 }
