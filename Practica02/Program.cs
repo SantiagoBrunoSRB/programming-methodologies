@@ -30,6 +30,7 @@ namespace Practica02
 			llenarAlumnos(c);
 			informar(multiple);
 			*/
+			/*
 			//ejercicio 7 TP2
 			Pila pila = new Pila();
 			Cola cola = new Cola();
@@ -40,6 +41,24 @@ namespace Practica02
 			imprimirElementos(pila);
 			imprimirElementos(cola);
 			imprimirElementos(conjunto);
+			*/
+			
+			//ejercicio 9
+			Pila pila = new Pila();
+			llenarAlumnos(pila);
+			cambiarEstrategia(pila,new EstrategiaPorNombre());
+			informar(pila);
+			cambiarEstrategia(pila,new EstrategiaPorLegajo());
+			informar(pila);
+			cambiarEstrategia(pila,new EstrategiaPorPromedio());
+			informar(pila);
+			cambiarEstrategia(pila,new EstrategiaPorDni());
+			informar(pila);
+			
+			
+			
+			
+			
 
 			Console.WriteLine("Hello World!");
 			Console.Write("Press any key to continue . . . ");
@@ -65,7 +84,7 @@ namespace Practica02
 			//contiene
 			//Tipo de dato 
 			if(c.maximo() is Persona){
-				Console.WriteLine("Esta coleccion esta llena de Personas");
+				Console.WriteLine("Esta coleccion no ser encuentra vacia");
 				Console.Write("Ingrese un Dni para buscar en la Coleccion: ");
 				int read = int.Parse(Console.ReadLine());
 				//instanciamos alumno por que una Persona es algo abstracto
@@ -134,5 +153,22 @@ namespace Practica02
 			}
 			Console.WriteLine("====Fin======");
 		}
+		
+		public static void cambiarEstrategia(Iterable col,IEstrategiaDeComparacion estrategia){
+			Iterador iterador = col.crearIterador();
+			iterador.primero();
+			while (!iterador.fin()) {
+				((Alumno)iterador.actual()).setEstrategia(estrategia);
+				iterador.siguente();
+				}
+			}
+		
+	   }
+		
+		
+		
+		
+		
+		
 
 	}
