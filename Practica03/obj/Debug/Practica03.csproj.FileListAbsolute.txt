@@ -1,0 +1,12 @@
+C:\Users\Santiago\OneDrive\Desktop\Test\Metodologias-2026\Practica01\Practica03\bin\Debug\Practica03.exe.config
+C:\Users\Santiago\OneDrive\Desktop\Test\Metodologias-2026\Practica01\Practica03\bin\Debug\Practica03.exe
+C:\Users\Santiago\OneDrive\Desktop\Test\Metodologias-2026\Practica01\Practica03\bin\Debug\Practica03.pdb
+C:\Users\Santiago\OneDrive\Desktop\Test\Metodologias-2026\Practica01\Practica03\obj\Debug\Practica03.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\OneDrive\Desktop\Test\Metodologias-2026\Practica01\Practica03\obj\Debug\Practica03.exe
+C:\Users\Santiago\OneDrive\Desktop\Test\Metodologias-2026\Practica01\Practica03\obj\Debug\Practica03.pdb
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica03\obj\Debug\Practica03.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica03\obj\Debug\Practica03.exe
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica03\obj\Debug\Practica03.pdb
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica03\bin\Debug\Practica03.exe.config
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica03\bin\Debug\Practica03.exe
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica03\bin\Debug\Practica03.pdb
