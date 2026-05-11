@@ -14,7 +14,7 @@ namespace Practica03
 			this.pila = p;
 			this.cola = c;
 		}
-		
+
 		#region IColeccionable implementation
 		public int cuantos()
 		{
@@ -57,4 +57,3 @@ namespace Practica03
 		#endregion
 	}
 }
-
