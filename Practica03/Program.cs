@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using Practica03._iterator;
 using Practica03._strategy;
+using Practica03._factory_method;
+
 
 namespace Practica03
 {
@@ -30,8 +32,7 @@ namespace Practica03
 			llenarAlumnos(c);
 			informar(multiple);
 			*/
-			/*
-			//ejercicio 7 TP2
+			/* ejercicio 7 TP2
 			Pila pila = new Pila();
 			Cola cola = new Cola();
 			Conjunto conjunto = new Conjunto();
@@ -42,9 +43,9 @@ namespace Practica03
 			imprimirElementos(cola);
 			imprimirElementos(conjunto);
 			*/
-			
+
 			//ejercicio 9
-			Pila pila = new Pila();
+			/*Pila pila = new Pila();
 			llenarAlumnos(pila);
 			cambiarEstrategia(pila,new EstrategiaPorNombre());
 			informar(pila);
@@ -54,59 +55,62 @@ namespace Practica03
 			informar(pila);
 			cambiarEstrategia(pila,new EstrategiaPorDni());
 			informar(pila);
+			*/
 			
-			
-			
-			
-			
+			Pila pila = new Pila();
+			llenarAlumnos(pila);
+			cambiarEstrategia(pila, new EstrategiaPorNombre());
+			informar(pila, 2);
 
 			Console.WriteLine("Hello World!");
 			Console.Write("Press any key to continue . . . ");
 			 Console.ReadKey(true);
 		}
 
-		// metodos de la clase 
-		public static void llenar(IColeccionable c){
+		// Tp3 Modificamos llenar  ejercicio 6
+		public static void llenar(IColeccionable cole,int opcion){
 			for (int i = 0; i < 20; i++) {
 				int valor = azar.Next(1,100);
-				Comparable com = new Numero(valor);
-				c.agregar(com);
+				Comparable com = FabricaDeComparables.crearAleatorio(opcion);
+				//seteamos la estrategia si es un Alumno
+				
+				cole.agregar(com);
 			}
 		}
-		// informar sirve tanto para datos como Persona o Numeros , pero no ambos al mismo tiempo
-		public static void informar(IColeccionable c){
-			//cuantos
+		//Tp3 Modificamos  informar  ejercicio 6
+		public static void informar(IColeccionable c,int opcion){
+			// Imprime cuantos elementos contiene el coleccionable
 			Console.WriteLine("tamaño del Coleccionable: "+c.cuantos());
-			//minimo
+			//Imprime el minimo del coleccionable
 			Console.WriteLine("minimo: "+c.minimo());
-			//maximo
+			//Imprime el maximo del coleccionable
 			Console.WriteLine("maximo: "+c.maximo());
-			//contiene
-			//Tipo de dato 
-			if(c.maximo() is Persona){
-				Console.WriteLine("Esta coleccion no ser encuentra vacia");
-				Console.Write("Ingrese un Dni para buscar en la Coleccion: ");
-				int read = int.Parse(Console.ReadLine());
-				//instanciamos alumno por que una Persona es algo abstracto
-				Comparable com = new Alumno("",read,0,0);
-				((Alumno)com).setEstrategia(new EstrategiaPorDni());
-				if (c.contiene(com)) {
-					Console.WriteLine("La persona se encuentra en la Lista");
-				}else
-					Console.WriteLine("La persona no se encuentra en la Lista");
-			}
-			else if(c.maximo() is Numero){
-				Console.WriteLine("Esto coleccion esta repleto de numeros");
-				Console.Write("Ingrese un valor para buscar en la Coleccion: ");
-				int read = int.Parse(Console.ReadLine());
-				Comparable com = new Numero(read);
-				if(c.contiene(com)){
-					Console.WriteLine("el elemento se encuentra en la lista");	
-				}else
-					Console.WriteLine("el elemento no se encuentra en la lista");
-			}
+			Comparable comparable = FabricaDeComparables.crearPorTeclado(opcion);
+	
+			if(c.contiene(comparable)){
+				Console.WriteLine("El elemento se esta registrado en la coleccion.");
+			}else
+				Console.WriteLine("El elemento no se encuentra en la coleccion!!.");
 
-			//comprobacion de tipo de datos que tiene la coleccion 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		}
 
@@ -135,7 +139,7 @@ namespace Practica03
 				//c.agregar(new Alumno(alumno,documento,legajo,promedio));
 				//Ejercicio 02 --> TP2
 				Comparable alum = new Alumno(nombre,documento,legajo,promedio);
-				((Alumno)alum).setEstrategia(new EstrategiaPorDni());
+				//((Alumno)alum).setEstrategia(new EstrategiaPorDni());
 				c.agregar(alum);
 			}
 		}
@@ -148,27 +152,21 @@ namespace Practica03
 			while (!iterador.fin()) {
 				Comparable elemento = iterador.actual();
 				Console.WriteLine(elemento);
-
 				iterador.siguente();
 			}
 			Console.WriteLine("====Fin======");
 		}
-		
+
+
 		public static void cambiarEstrategia(Iterable col,IEstrategiaDeComparacion estrategia){
 			Iterador iterador = col.crearIterador();
 			iterador.primero();
 			while (!iterador.fin()) {
 				((Alumno)iterador.actual()).setEstrategia(estrategia);
 				iterador.siguente();
-				}
 			}
-		
-	   }
-		
-		
-		
-		
-		
-		
+		}
 
 	}
+
+}

@@ -27,7 +27,7 @@ namespace Practica03
 			legajo =l;
 			promedio= p;
 			//Paso 3.2 definir Estrategia por defecto
-			estrategia = new EstrategiaPorPromedio();
+			estrategia = new EstrategiaPorDni();
 		}
 
 		//getters
