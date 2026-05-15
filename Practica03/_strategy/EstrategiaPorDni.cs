@@ -14,19 +14,22 @@ namespace Practica03._strategy
 
 		//Inicio IEstrategiaDeComparacion implementation
 
-		public bool sosIgual(Alumno a, Alumno b)
+		public bool sosIgual(Comparable a, Comparable b)
 		{
-			return a.getDni() == b.getDni();
+			//return a.getDni() == b.getDni();
+			return ((Alumno)a).getDni() == ((Alumno)b).getDni();
 		}
 
-		public bool sosMenor(Alumno a, Alumno b)
+		public bool sosMenor(Comparable a, Comparable b)
 		{
-			return a.getDni() < b.getDni();
+			//return a.getDni() < b.getDni();
+			return ((Alumno)a).getDni() < ((Alumno)b).getDni();
 		}
 
-		public bool sosMayor(Alumno a, Alumno b)
+		public bool sosMayor(Comparable a, Comparable b)
 		{
-			return a.getDni() > b.getDni();
+			//return a.getDni() > b.getDni();
+			return ((Alumno)a).getDni() > ((Alumno)b).getDni();
 		}
 
 		//Fin
