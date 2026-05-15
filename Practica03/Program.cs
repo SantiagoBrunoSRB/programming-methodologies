@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using Practica03._iterator;
 using Practica03._strategy;
 using Practica03._factory_method;
+using Practica03._observer;
 
 
 namespace Practica03
@@ -63,6 +64,18 @@ namespace Practica03
 			informar(coleccion,3);
 			*/
 			
+			Profesor profe = new Profesor("Mauro",1234567,7);
+			Pila p = new Pila();
+			llenar(p,2);
+			Iterador ite = p.crearIterador(); // Iterador de pila
+			//definimos el primer elemento del iterador 
+			ite.primero();
+			// se ejecuta mientras el iterador no llego al final de la lista
+			while (!ite.fin()) {
+				profe.agregarObservador((Observador)ite.actual()); //ite.actual() --> me tira  un Comparable
+				ite.siguente();
+			}
+			dictadoDeClases(profe);
 			
 			
 			Console.WriteLine("Hello estan vivas");
