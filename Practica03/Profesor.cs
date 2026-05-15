@@ -46,7 +46,7 @@ namespace Practica03
 			this.notificar(); // el profesor notifica su accion para que cada alumno  se actualize
 		}
 
-		#Inicio Comparable implementation
+		//Inicio Comparable implementation
 
 		public override bool sosIgual(Comparable c)
 		{
