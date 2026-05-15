@@ -57,13 +57,15 @@ namespace Practica03
 			informar(pila);
 			*/
 			
-			//ejercicio 7 TP3
-			IColeccionable coleccion = FabricaDeColeccionables.crearColeccion(4);
+				//ejercicio 7 TP3
+			/*IColeccionable coleccion = FabricaDeColeccionables.crearColeccion(4);
 			llenar(coleccion,3);
 			informar(coleccion,3);
-		
-
-			Console.WriteLine("Las interfaces estan vivas!");
+			*/
+			
+			
+			
+			Console.WriteLine("Hello estan vivas");
 			Console.Write("Press any key to continue . . . ");
 			 Console.ReadKey(true);
 		}

@@ -1,12 +1,5 @@
-﻿/*
- * Creado por SharpDevelop.
- * Usuario: Santiago
- * Fecha: 3/4/2026
- * Hora: 20:12
- * 
- * Para cambiar esta plantilla use Herramientas | Opciones | Codificación | Editar Encabezados Estándar
- */
-using System;
+﻿using System;
+using System.Collections.Generic;
 using Practica03._strategy;
 
 namespace Practica03
@@ -19,8 +12,10 @@ namespace Practica03
 	{
 		private int legajo;
 		private double promedio;
+		private List<string> frases;
 		// Paso 3.1 Creamos la Composicion que esta en el diagrama UML 
 		private IEstrategiaDeComparacion estrategia;
+		Random azar = new Random();
 
 		public Alumno(string nom,int doc,int l, double p) :base(nom,doc)
 		{
@@ -28,6 +23,7 @@ namespace Practica03
 			promedio= p;
 			//Paso 3.2 definir Estrategia por defecto
 			estrategia = new EstrategiaPorDni();
+			frases = new List<string>(){"Mirando el celular","Dibujando en el margen de la carpeta", "Tirando aviones de papel"};
 		}
 
 		//getters
@@ -50,6 +46,10 @@ namespace Practica03
 		public override bool sosIgual(Comparable c)
 		{
 			//return this.legajo == ((Alumno)c).getLegajo();
+			//this es el alumno Actual quien posee todos los atributos en esta clase
+			// (Alumno)c == un alumno pasado por parametro para comparar con el actual de la clase "this"
+			//dellega el trabajo a la estrategia que tiene  el almno por defecto que es por Promdio
+			// entonces -- > this.EstratategiaPorPromedio.sosIgual(this,alumnopasado_por_parametro)
 			return this.estrategia.sosIgual(this,(Alumno)c);
 		}
 
@@ -70,7 +70,6 @@ namespace Practica03
 		    return "Nombre: " + getNombre() + " DNI: " + getDni() + " Legajo: " + legajo + " Promedio: " + promedio;
 		}
 		*/
-		
 		public IEstrategiaDeComparacion getEstrategia(){
 			return this.estrategia;
 		}
@@ -79,7 +78,15 @@ namespace Practica03
 		{
 			return "\nEstrategia de Comparacion: " + getEstrategia() +"\nNombre: " + getNombre() + " \nDNI: " + getDni() + " \nLegajo: " + getLegajo() + " \nPromedio: " + getPromedio();
 		}
-
+		//Metodos del TP3.
+		public void prestarAtencion(){
+			Console.WriteLine("Prestando atencion: ");
+		}
+		public void distraerse(){
+			int indiceAleatorio = azar.Next(this.frases.Count);
+			Console.WriteLine(this.frases[indiceAleatorio]);
+			
+		}
 
 	}
 }
