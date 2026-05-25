@@ -1,0 +1,94 @@
+RESPUESTA A LA PREGUNTA 1 DEL TP3
+1. Duplicación entre llenar y llenarAlumnos
+
+La diferencia principal entre estos dos métodos estaba únicamente en el objeto que se instanciaba dentro de cada uno:
+
+En llenar se creaban instancias de Numero.
+En llenarAlumnos se generaban instancias de Alumno.
+
+Todo el resto del procedimiento era exactamente el mismo:
+
+realizar varias iteraciones,
+crear un objeto que implemente Comparable,
+incorporarlo a una colección.
+
+Esto evidencia que existía lógica duplicada, donde solo variaba la clase concreta utilizada para crear los objetos.
+
+2. Situación similar en el método informar
+
+Con la ejecución de distintos main, fue necesario adaptar el método informar para soportar distintos tipos de elementos almacenados en la colección.
+
+Cuando la colección contenía números, informar debía solicitar un valor numérico y construir un objeto Numero para efectuar la búsqueda.
+Cuando contenía alumnos, era necesario pedir un dato relacionado con el alumno (por ejemplo, el DNI) y crear un objeto Alumno.
+
+En consecuencia, el método informar terminó dependiendo directamente del tipo específico de objeto con el que trabajaba.
+
+3. Consecuencias de incorporar una nueva clase (Profesor)
+
+Si se agregara una clase Profesor, cuyos objetos debieran compararse por antigüedad, nuevamente habría que modificar código ya existente:
+
+Crear un método adicional como llenarProfesores o alterar el método llenar.
+Adaptar informar para solicitar la antigüedad y generar un objeto Profesor para realizar la búsqueda.
+
+Esto provoca que cada nueva clase obligue a modificar métodos previamente implementados, generando una solución poco flexible y con repetición innecesaria de código.
+
+Conclusión
+
+Por esta razón se utiliza el patrón Factory Method, ya que permite delegar la creación de objetos y hacer que métodos como llenar e informar trabajen de forma genérica con elementos de tipo Comparable.
+
+RESPUESTA A LA PREGUNTA 7 DEL TP3
+Problema al seleccionar la colección en el main
+
+Si desde el método main también se desea decidir qué tipo de colección utilizar para almacenar los comparables, surge un inconveniente similar al resuelto mediante Factory Method para Numero y Alumno.
+
+El main tendría que crear directamente instancias de clases concretas como:
+
+Pila
+Cola
+Conjunto
+ColeccionMultiple
+
+Esto genera un fuerte acoplamiento entre el código cliente y las implementaciones concretas de las colecciones. Además, cada vez que aparezca una nueva colección, será necesario modificar el main.
+
+Propuesta de solución: fábrica de colecciones
+
+Para evitar ese problema, resulta conveniente encapsular también la creación de colecciones dentro de una fábrica.
+
+De esta forma:
+
+El main interactúa únicamente con la interfaz IColeccionable.
+La responsabilidad de decidir qué colección concreta instanciar queda delegada en una clase especializada, por ejemplo FabricaDeColeccionables.
+Beneficios
+
+Con este enfoque, el sistema se vuelve:
+
+Más modular.
+Más flexible.
+Más sencillo de extender.
+
+Así, si se incorpora una nueva colección, solamente será necesario modificar la fábrica, sin afectar el resto del programa.
+
+RESPUESTA A LA PREGUNTA 10 DEL TP3
+Reestructuración de la jerarquía de fábricas
+
+Las fábricas correspondientes a Alumno y Profesor poseen características en común, ya que ambas crean objetos derivados de Persona. Debido a esto, comparten parte de la lógica necesaria para construir esos objetos, como la generación u obtención de nombre y dni.
+
+Alternativa de diseño
+
+Sí, sería posible extender la jerarquía de fábricas incorporando una clase abstracta intermedia, por ejemplo FabricaDePersonas, que herede de FabricaDeComparables.
+
+FabricaDePersonas (abstracta):
+centraliza la lógica compartida entre todas las personas,
+obtiene o genera datos como nombre y dni.
+Fábricas concretas (FabricaDeAlumno y FabricaDeProfesor):
+se encargan únicamente de los atributos específicos de cada tipo de objeto.
+FabricaDeAlumno: maneja datos como promedio y fecha_de_egreso.
+FabricaDeProfesor: incorpora atributos como antigüedad.
+Ventajas del cambio
+
+Esta reorganización permite:
+
+Disminuir la repetición de código.
+Centralizar la lógica compartida.
+Mejorar la mantenibilidad del sistema.
+Facilitar futuras extensiones del diseño.

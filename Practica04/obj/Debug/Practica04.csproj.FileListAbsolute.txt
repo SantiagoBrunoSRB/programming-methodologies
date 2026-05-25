@@ -1,0 +1,6 @@
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica04\bin\Debug\Practica04.exe.config
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica04\bin\Debug\Practica04.exe
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica04\bin\Debug\Practica04.pdb
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica04\obj\Debug\Practica04.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica04\obj\Debug\Practica04.exe
+C:\Users\Santiago\OneDrive\Desktop\Programming Methodologies\Practica04\obj\Debug\Practica04.pdb
