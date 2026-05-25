@@ -45,7 +45,7 @@ namespace Practica04
 			this.calificacion = c;
 		}
 
-		public int responderPregunta(int pregunta){
+		public virtual int responderPregunta(int pregunta){
 			return azar.Next(1, 4);
 		}
 
