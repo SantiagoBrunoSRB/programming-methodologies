@@ -45,7 +45,7 @@ namespace Practica04
 			
 			teacher.teachingAClass();
 			
-			Console.WriteLine("Hello estan vivas");
+			Console.WriteLine("Todo Funciona Correctamente");
 			Console.Write("Press any key to continue . . . ");
 			 Console.ReadKey(true);
 		}
