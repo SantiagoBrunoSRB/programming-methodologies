@@ -10,7 +10,12 @@ using MetodologíasDeProgramaciónI;
 
 namespace Practica04._adapter
 {
-	public class AdaptadorDeAlumno : Student
+	public interface AlumnoAdaptado
+	{
+		Alumno getAlumno();
+	}
+
+	public class AdaptadorDeAlumno : Student, AlumnoAdaptado
 	{
 		private Alumno alumno;
 
@@ -39,22 +44,27 @@ namespace Practica04._adapter
 			return alumno.mostrarCalificacion();
 		}
 
+		public Alumno getAlumno()
+		{
+			return alumno;
+		}
+
 		public bool equals(Student student)
 		{
-			AdaptadorDeAlumno otro = (AdaptadorDeAlumno)student;
-			return alumno.sosIgual(otro.alumno);
+			AlumnoAdaptado otro = (AlumnoAdaptado)student;
+			return alumno.sosIgual(otro.getAlumno());
 		}
 
 		public bool lessThan(Student student)
 		{
-			AdaptadorDeAlumno otro = (AdaptadorDeAlumno)student;
-			return alumno.sosMenor(otro.alumno);
+			AlumnoAdaptado otro = (AlumnoAdaptado)student;
+			return alumno.sosMenor(otro.getAlumno());
 		}
 
 		public bool greaterThan(Student student)
 		{
-			AdaptadorDeAlumno otro = (AdaptadorDeAlumno)student;
-			return alumno.sosMayor(otro.alumno);
+			AlumnoAdaptado otro = (AlumnoAdaptado)student;
+			return alumno.sosMayor(otro.getAlumno());
 		}
 	}
 }

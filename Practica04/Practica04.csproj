@@ -52,6 +52,12 @@
     <Compile Include="AlumnoMuyEstudioso.cs" />
     <Compile Include="MDPI.cs" />
     <Compile Include="_adapter\AdaptadorDeAlumno.cs" />
+    <Compile Include="_decorator\DecoradoCondicion.cs" />
+    <Compile Include="_decorator\DecoradoLegajo.cs" />
+    <Compile Include="_decorator\DecoradoNotaEnLetras.cs" />
+    <Compile Include="_decorator\DecoradoNumeroOrden.cs" />
+    <Compile Include="_decorator\DecoradoRecuadro.cs" />
+    <Compile Include="_decorator\DecoradorAlumno.cs" />
     <Compile Include="colecciones\Cola.cs" />
     <Compile Include="colecciones\ColeccionMultiple.cs" />
     <Compile Include="colecciones\Conjunto.cs" />
@@ -91,6 +97,7 @@
   <ItemGroup>
     <Folder Include="colecciones" />
     <Folder Include="_adapter" />
+    <Folder Include="_decorator" />
     <Folder Include="_factory_method" />
     <Folder Include="_observer" />
     <Folder Include="_strategy" />

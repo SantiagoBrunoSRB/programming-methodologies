@@ -13,6 +13,7 @@ using Practica04._strategy;
 using Practica04._factory_method;
 using Practica04._observer;
 using Practica04._adapter;
+using Practica04._decorator;
 using MetodologíasDeProgramaciónI;
 
 
@@ -32,13 +33,13 @@ namespace Practica04
 			for (int i = 0; i < 10; i++) {
 				Alumno alumno = new Alumno("Alumno " + (i + 1), 1000 + i, i + 1, 7);
 				alumno.setEstrategia(new EstrategiaPorCalificacion());
-				teacher.goToClass(new AdaptadorDeAlumno(alumno));
+				teacher.goToClass(decorarAlumno(new AdaptadorDeAlumno(alumno)));
 			}
 			
 			for (int i = 0; i < 10; i++) {
 				AlumnoMuyEstudioso alumno = new AlumnoMuyEstudioso("Alumno muy estudioso " + (i + 1), 2000 + i, i + 11, 10);
 				alumno.setEstrategia(new EstrategiaPorCalificacion());
-				teacher.goToClass(new AdaptadorDeAlumno(alumno));
+				teacher.goToClass(decorarAlumno(new AdaptadorDeAlumno(alumno)));
 			}
 			
 			teacher.teachingAClass();
@@ -46,6 +47,16 @@ namespace Practica04
 			Console.WriteLine("Hello estan vivas");
 			Console.Write("Press any key to continue . . . ");
 			 Console.ReadKey(true);
+		}
+
+		public static Student decorarAlumno(Student alumno){
+			Student alumnoDecorado = alumno;
+			alumnoDecorado = new DecoradoNotaEnLetras(alumnoDecorado);
+			alumnoDecorado = new DecoradoCondicion(alumnoDecorado);
+			alumnoDecorado = new DecoradoLegajo(alumnoDecorado);
+			alumnoDecorado = new DecoradoNumeroOrden(alumnoDecorado);
+			alumnoDecorado = new DecoradoRecuadro(alumnoDecorado);
+			return alumnoDecorado;
 		}
 		
 		
