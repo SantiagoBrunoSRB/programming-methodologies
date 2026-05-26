@@ -31,11 +31,13 @@ namespace Practica04
 			
 			for (int i = 0; i < 10; i++) {
 				Alumno alumno = new Alumno("Alumno " + (i + 1), 1000 + i, i + 1, 7);
+				alumno.setEstrategia(new EstrategiaPorCalificacion());
 				teacher.goToClass(new AdaptadorDeAlumno(alumno));
 			}
 			
 			for (int i = 0; i < 10; i++) {
 				AlumnoMuyEstudioso alumno = new AlumnoMuyEstudioso("Alumno muy estudioso " + (i + 1), 2000 + i, i + 11, 10);
+				alumno.setEstrategia(new EstrategiaPorCalificacion());
 				teacher.goToClass(new AdaptadorDeAlumno(alumno));
 			}
 			

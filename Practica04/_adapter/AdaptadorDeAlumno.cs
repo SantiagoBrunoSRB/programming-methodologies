@@ -42,19 +42,19 @@ namespace Practica04._adapter
 		public bool equals(Student student)
 		{
 			AdaptadorDeAlumno otro = (AdaptadorDeAlumno)student;
-			return alumno.getCalificacion() == otro.alumno.getCalificacion();
+			return alumno.sosIgual(otro.alumno);
 		}
 
 		public bool lessThan(Student student)
 		{
 			AdaptadorDeAlumno otro = (AdaptadorDeAlumno)student;
-			return alumno.getCalificacion() < otro.alumno.getCalificacion();
+			return alumno.sosMenor(otro.alumno);
 		}
 
 		public bool greaterThan(Student student)
 		{
 			AdaptadorDeAlumno otro = (AdaptadorDeAlumno)student;
-			return alumno.getCalificacion() > otro.alumno.getCalificacion();
+			return alumno.sosMayor(otro.alumno);
 		}
 	}
 }
