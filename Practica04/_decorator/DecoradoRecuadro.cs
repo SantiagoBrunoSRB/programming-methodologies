@@ -11,7 +11,7 @@ namespace Practica04._decorator
 
 		public override string showResult()
 		{
-			return "*********************************\n*\n" + alumno.showResult() + "\n*\n*********************************";
+			return "****************************************************\n*\n" + alumno.showResult() + "  *\n****************************************************";
 		}
 	}
 }
