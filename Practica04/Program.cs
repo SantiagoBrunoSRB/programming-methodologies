@@ -28,6 +28,7 @@ namespace Practica04
 		{
 			//================ MAIN Consola===============================================
 
+			//Ejercicio 8 : Ejecucion y comprobacion de que todo funciona correctamente
 			Teacher teacher = new Teacher();
 			
 			for (int i = 0; i < 10; i++) {
