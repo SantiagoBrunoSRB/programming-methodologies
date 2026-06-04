@@ -14,6 +14,7 @@ using Practica05._factory_method;
 using Practica05._observer;
 using Practica05._adapter;
 using Practica05._decorator;
+using Practica05._proxy;
 using MetodologíasDeProgramaciónI;
 
 
@@ -32,13 +33,13 @@ namespace Practica05
 			Teacher teacher = new Teacher();
 			
 			for (int i = 0; i < 10; i++) {
-				Alumno alumno = new Alumno("Alumno " + (i + 1), 1000 + i, i + 1, 7);
+				ProxyDeAlumno alumno = new ProxyDeAlumno("Alumno " + (i + 1), 1000 + i, i + 1, 7, false);
 				alumno.setEstrategia(new EstrategiaPorCalificacion());
 				teacher.goToClass(decorarAlumno(new AdaptadorDeAlumno(alumno)));
 			}
 			
 			for (int i = 0; i < 10; i++) {
-				AlumnoMuyEstudioso alumno = new AlumnoMuyEstudioso("Alumno muy estudioso " + (i + 1), 2000 + i, i + 11, 10);
+				ProxyDeAlumno alumno = new ProxyDeAlumno("Alumno muy estudioso " + (i + 1), 2000 + i, i + 11, 10, true);
 				alumno.setEstrategia(new EstrategiaPorCalificacion());
 				teacher.goToClass(decorarAlumno(new AdaptadorDeAlumno(alumno)));
 			}

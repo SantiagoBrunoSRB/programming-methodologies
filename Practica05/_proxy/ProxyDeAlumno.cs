@@ -40,10 +40,12 @@ namespace Practica05._proxy
 			{
 				if (esAlumnoMuyEstudioso)
 				{
+					Console.WriteLine("Creando instancia de AlumnoMuyEstudioso: " + getNombre());
 					alumnoReal = new AlumnoMuyEstudioso(getNombre(), getDni(), legajo, promedio);
 				}
 				else
 				{
+					Console.WriteLine("Creando instancia de Alumno: " + getNombre());
 					alumnoReal = new Alumno(getNombre(), getDni(), legajo, promedio);
 				}
 				alumnoReal.setCalificacion(calificacion);

@@ -11,7 +11,10 @@ namespace Practica05._decorator
 
 		public override string showResult()
 		{
-			return getAlumno().getNombre() + " (" + getAlumno().getLegajo() + ")\n" + alumno.showResult().Replace(getAlumno().getNombre() + " ", "");
+			if (getAlumno() != null)
+				return getAlumno().getNombre() + " (" + getAlumno().getLegajo() + ")\n" + alumno.showResult().Replace(getAlumno().getNombre() + " ", "");
+			else
+				return alumno.showResult();
 		}
 	}
 }

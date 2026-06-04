@@ -11,7 +11,10 @@ namespace Practica05._decorator
 
 		public override string showResult()
 		{
-			return alumno.showResult() + " (" + notaEnLetras(getAlumno().getCalificacion()) + ")";
+			if (getAlumno() != null)
+				return alumno.showResult() + " (" + notaEnLetras(getAlumno().getCalificacion()) + ")";
+			else
+				return alumno.showResult();
 		}
 
 		private string notaEnLetras(int nota)
