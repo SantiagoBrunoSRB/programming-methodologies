@@ -29,26 +29,20 @@ namespace Practica05
 		{
 			//================ MAIN Consola===============================================
 
-			//Ejercicio 8 : Ejecucion y comprobacion de que todo funciona correctamente
-			Teacher teacher = new Teacher();
+			//Ejercicio 10 : Prueba del patron Command con Pila/Cola y Aula
+			Pila pila = new Pila();
+			Aula aula = new Aula();
 			
-			for (int i = 0; i < 10; i++) {
-				ProxyDeAlumno alumno = new ProxyDeAlumno("Alumno " + (i + 1), 1000 + i, i + 1, 7, false);
-				alumno.setEstrategia(new EstrategiaPorCalificacion());
-				teacher.goToClass(decorarAlumno(new AdaptadorDeAlumno(alumno)));
-			}
+			pila.setOrdenInicio(new OrdenInicio(aula));
+			pila.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aula));
+			pila.setOrdenAulaLlena(new OrdenAulaLlena(aula));
 			
-			for (int i = 0; i < 10; i++) {
-				ProxyDeAlumno alumno = new ProxyDeAlumno("Alumno muy estudioso " + (i + 1), 2000 + i, i + 11, 10, true);
-				alumno.setEstrategia(new EstrategiaPorCalificacion());
-				teacher.goToClass(decorarAlumno(new AdaptadorDeAlumno(alumno)));
-			}
+			llenar(pila, 2);
+			llenar(pila, 2);
 			
-			teacher.teachingAClass();
-			
-			Console.WriteLine("Todo Funciona Correctamente");
+			Console.WriteLine("Ejercicio 10 completado. Se agregaron 40 alumnos a la pila.");
 			Console.Write("Press any key to continue . . . ");
-			 Console.ReadKey(true);
+			Console.ReadKey(true);
 		}
 
 		public static Student decorarAlumno(Student alumno){
