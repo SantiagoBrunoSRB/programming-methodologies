@@ -51,6 +51,8 @@
     <Compile Include="Alumno.cs" />
     <Compile Include="Aula.cs" />
     <Compile Include="OrdenEnAula1.cs" />
+    <Compile Include="OrdenInicio.cs" />
+    <Compile Include="OrdenAulaLlena.cs" />
     <Compile Include="AlumnoMuyEstudioso.cs" />
     <Compile Include="MDPI.cs" />
     <Compile Include="_adapter\AdaptadorDeAlumno.cs" />
