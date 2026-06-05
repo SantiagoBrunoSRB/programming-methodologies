@@ -8,9 +8,13 @@ namespace Practica05
 	/// <summary>
 	/// Description of Cola.
 	/// </summary>
-	public class Cola : IColeccionable , Iterable
+	public class Cola : IColeccionable , Iterable, Ordenable
 	{
 		private List<Comparable> elementos;
+		private OrdenEnAula1 ordenInicio;
+		private OrdenEnAula2 ordenLlegaAlumno;
+		private OrdenEnAula1 ordenAulaLlena;
+		
 		public Cola()
 		{
 			elementos = new List<Comparable>();
@@ -70,6 +74,21 @@ namespace Practica05
 		public void agregar(Comparable c)
 		{
 			this.elementos.Add(c);
+			
+			if (elementos.Count == 1 && ordenInicio != null)
+			{
+				ordenInicio.ejecutar();
+			}
+			
+			if (ordenLlegaAlumno != null)
+			{
+				ordenLlegaAlumno.ejecutar(c);
+			}
+			
+			if (elementos.Count == 40 && ordenAulaLlena != null)
+			{
+				ordenAulaLlena.ejecutar();
+			}
 		}
 
 		public bool contiene(Comparable c)
@@ -92,6 +111,23 @@ namespace Practica05
 			return new IteradorDeCola(this);
 		}
 
+		#endregion
+		
+		#region Ordenable implementation
+		public void setOrdenInicio(OrdenEnAula1 orden)
+		{
+			this.ordenInicio = orden;
+		}
+		
+		public void setOrdenLlegaAlumno(OrdenEnAula2 orden)
+		{
+			this.ordenLlegaAlumno = orden;
+		}
+		
+		public void setOrdenAulaLlena(OrdenEnAula1 orden)
+		{
+			this.ordenAulaLlena = orden;
+		}
 		#endregion
 	}
 }

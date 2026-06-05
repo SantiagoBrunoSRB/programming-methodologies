@@ -15,9 +15,13 @@ namespace Practica05
 	/// <summary>
 	/// Una Pila sigue el principio de LIFO(last In First Out)
 	/// </summary>
-	public class Pila : IColeccionable, Iterable
+	public class Pila : IColeccionable, Iterable, Ordenable
 	{
 		private List<Comparable> elementos;
+		private OrdenEnAula1 ordenInicio;
+		private OrdenEnAula2 ordenLlegaAlumno;
+		private OrdenEnAula1 ordenAulaLlena;
+		
 		public Pila()
 		{
 			elementos = new List<Comparable>();
@@ -80,6 +84,21 @@ namespace Practica05
 		public void agregar(Comparable c)
 		{
 			elementos.Add(c);
+			
+			if (elementos.Count == 1 && ordenInicio != null)
+			{
+				ordenInicio.ejecutar();
+			}
+			
+			if (ordenLlegaAlumno != null)
+			{
+				ordenLlegaAlumno.ejecutar(c);
+			}
+			
+			if (elementos.Count == 40 && ordenAulaLlena != null)
+			{
+				ordenAulaLlena.ejecutar();
+			}
 		}
 		public bool contiene(Comparable c)
 		{
@@ -102,5 +121,22 @@ namespace Practica05
 			return new IteradorDePila(this);
 		}
 		//Fin
+		
+		#region Ordenable implementation
+		public void setOrdenInicio(OrdenEnAula1 orden)
+		{
+			this.ordenInicio = orden;
+		}
+		
+		public void setOrdenLlegaAlumno(OrdenEnAula2 orden)
+		{
+			this.ordenLlegaAlumno = orden;
+		}
+		
+		public void setOrdenAulaLlena(OrdenEnAula1 orden)
+		{
+			this.ordenAulaLlena = orden;
+		}
+		#endregion
 	}
 }
